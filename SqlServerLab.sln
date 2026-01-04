@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageChecksum", "PageChecksu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChecksumStatsStream", "ChecksumStatsStream\ChecksumStatsStream.csproj", "{72137F69-7E92-4C0F-948A-C499C4E87D7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetadataObjectId", "MetadataObjectId\MetadataObjectId.csproj", "{CBF86D2D-E232-4927-AE0E-545F9985A801}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{72137F69-7E92-4C0F-948A-C499C4E87D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72137F69-7E92-4C0F-948A-C499C4E87D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72137F69-7E92-4C0F-948A-C499C4E87D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF86D2D-E232-4927-AE0E-545F9985A801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF86D2D-E232-4927-AE0E-545F9985A801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF86D2D-E232-4927-AE0E-545F9985A801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF86D2D-E232-4927-AE0E-545F9985A801}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
