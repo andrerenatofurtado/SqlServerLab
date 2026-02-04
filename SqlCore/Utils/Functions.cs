@@ -23,6 +23,34 @@
                    ((value & 0xFF000000) >> 24);
         }
 
+        public static bool IsBitSet(byte value, int bitPosition)
+        {
+            if (bitPosition < 0 || bitPosition > 7)
+                throw new ArgumentOutOfRangeException(nameof(bitPosition));
+
+            return (value & (1 << bitPosition)) != 0;
+        }
+
+        public static bool IsValidParity(byte value)
+        {
+            return ((value & 0xC0) == 0x80) || ((value & 0xC0) == 0x40);
+        }
+
+        public static bool IsEqualParity(byte value1, byte value2)
+        {
+            const byte mask = 0xC0;
+
+            byte parity1 = (byte)(value1 & mask);
+            byte parity2 = (byte)(value2 & mask);
+
+            return (parity1 == parity2) && (parity1 == 0x80 || parity1 == 0x40);
+        }
+
+        public static byte CalculateParityByte(byte value)
+        {
+            return (byte)(value & 0xC0);
+        }
+
         public static byte[] BlobStringToBytes(string hex)
         {
             if (hex.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
@@ -43,6 +71,26 @@
                 hex += data[offset + i].ToString("X2");
 
             return hex;
+        }
+
+        public static string FormatLsn(ReadOnlySpan<byte> lsnBytes)
+        {
+            if (lsnBytes.Length != 10)
+                throw new ArgumentException("LSN must be exactly 10 bytes");
+
+            Span<byte> tmp4 = stackalloc byte[4];
+            Span<byte> tmp2 = stackalloc byte[2];
+
+            lsnBytes.Slice(0, 4).CopyTo(tmp4);
+            uint vlfId = BitConverter.ToUInt32(tmp4);
+
+            lsnBytes.Slice(4, 4).CopyTo(tmp4);
+            uint logBlockId = BitConverter.ToUInt32(tmp4);
+
+            lsnBytes.Slice(8, 2).CopyTo(tmp2);
+            ushort logRecordId = BitConverter.ToUInt16(tmp2);
+
+            return $"{vlfId:X8}:{logBlockId:X8}:{logRecordId:X4}";
         }
 
         public static uint rol(uint value, int rotation)

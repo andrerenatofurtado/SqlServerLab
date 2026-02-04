@@ -1,4 +1,7 @@
-﻿namespace SqlCore.Engine
+﻿using System.Diagnostics.Metrics;
+using System;
+
+namespace SqlCore.Engine
 {
     public static class PageHeader
     {

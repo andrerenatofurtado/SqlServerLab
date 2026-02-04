@@ -1,21 +1,17 @@
 ﻿using SqlCore.Utils;
+using System.Buffers.Binary;
 
-namespace SqlCore.Engine
+namespace SqlCore.Engine.TransactionLog
 {
-    public static class PageChecksum
+    public static class LogBlockChecksum
     {
-        private const int seed = 15;
-        private const int pageSize = 8192;
-        private const int numOfSectors = 16;
+        private static int numOfSectors;
+        private const short sectorSize = 512;
         private const int numOfElements = 128;
 
-        public static uint CalculateChecksum(byte[] pageBuffer)
+        public static uint CalculateLogBlockChecksum(Span<byte> logBlockContent)
         {
-            if (pageBuffer == null)
-                throw new ArgumentNullException(nameof(pageBuffer));
-
-            if (pageBuffer.Length != pageSize)
-                throw new ArgumentException("Page buffer must be exactly 8192 bytes");
+            numOfSectors = logBlockContent.Length / sectorSize;
 
             uint[,] pagebuf = new uint[numOfSectors, numOfElements];
 
@@ -25,7 +21,7 @@ namespace SqlCore.Engine
             {
                 for (int j = 0; j < numOfElements; j++)
                 {
-                    pagebuf[i, j] = BitConverter.ToUInt32(pageBuffer, offset);
+                    pagebuf[i, j] = BinaryPrimitives.ReadUInt32LittleEndian(logBlockContent.Slice(offset, 4));
                     offset += 4;
                 }
             }
@@ -33,16 +29,19 @@ namespace SqlCore.Engine
             uint checksum = 0;
             uint result = 0;
 
-            pagebuf[0, 15] = 0x00000000;
+            pagebuf[0, 6] = 0x00000000;
 
             for (int i = 0; i < numOfSectors; i++)
             {
                 result = 0;
 
                 for (int j = 0; j < numOfElements; j++)
+                {
                     result ^= pagebuf[i, j];
+                }
 
-                checksum ^= Functions.rol(result, seed - i);
+                checksum ^= Functions.rol(result, numOfSectors - i - 1);
+
             }
 
             return checksum;

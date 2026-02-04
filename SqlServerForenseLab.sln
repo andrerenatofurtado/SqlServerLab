@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChecksumStatsStream", "Chec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetadataObjectId", "MetadataObjectId\MetadataObjectId.csproj", "{CBF86D2D-E232-4927-AE0E-545F9985A801}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionLogScanner", "Test\TransactionLogScanner.csproj", "{FD98192A-7D96-49E2-9002-794A058EE9E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{CBF86D2D-E232-4927-AE0E-545F9985A801}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF86D2D-E232-4927-AE0E-545F9985A801}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF86D2D-E232-4927-AE0E-545F9985A801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD98192A-7D96-49E2-9002-794A058EE9E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD98192A-7D96-49E2-9002-794A058EE9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD98192A-7D96-49E2-9002-794A058EE9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD98192A-7D96-49E2-9002-794A058EE9E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
