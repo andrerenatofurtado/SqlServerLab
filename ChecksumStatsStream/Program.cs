@@ -1,4 +1,4 @@
-﻿using SqlCore.Engine;
+﻿using SqlCore.Engine.Statistics;
 using SqlCore.Utils;
 
 namespace ChecksumStatsStream
@@ -20,7 +20,7 @@ namespace ChecksumStatsStream
             byte[] stats_stream = Functions.BlobStringToBytes(input);
             string inputChecksum = Functions.FormatBytesAsHex(stats_stream, 16, 4);
 
-            uint checksum = Statistics.CalculateStatsChecksum(stats_stream);
+            uint checksum = StatsStream.CalculateStatsChecksum(stats_stream);
 
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;

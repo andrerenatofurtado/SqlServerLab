@@ -1,6 +1,5 @@
 ﻿using SqlCore.Engine;
 using SqlCore.Utils;
-using System;
 
 namespace TransactionLogScanner
 {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34701.34
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11415.280
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlCore", "SqlCore\SqlCore.csproj", "{F7566645-2661-4782-B124-804DC2627FC3}"
 EndProject
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChecksumStatsStream", "Chec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetadataObjectId", "MetadataObjectId\MetadataObjectId.csproj", "{CBF86D2D-E232-4927-AE0E-545F9985A801}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionLogScanner", "Test\TransactionLogScanner.csproj", "{FD98192A-7D96-49E2-9002-794A058EE9E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransactionLogScanner", "TransactionLogScanner\TransactionLogScanner.csproj", "{FD98192A-7D96-49E2-9002-794A058EE9E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsStreamParser", "StatsStreamParser\StatsStreamParser.csproj", "{A1D819BC-3A3F-476E-944D-245262B85E3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{FD98192A-7D96-49E2-9002-794A058EE9E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD98192A-7D96-49E2-9002-794A058EE9E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD98192A-7D96-49E2-9002-794A058EE9E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1D819BC-3A3F-476E-944D-245262B85E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D819BC-3A3F-476E-944D-245262B85E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1D819BC-3A3F-476E-944D-245262B85E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D819BC-3A3F-476E-944D-245262B85E3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
